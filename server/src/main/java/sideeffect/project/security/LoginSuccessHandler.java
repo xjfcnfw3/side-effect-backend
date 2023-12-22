@@ -11,8 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 import sideeffect.project.domain.token.RefreshToken;
 import sideeffect.project.dto.user.RefreshTokenResponse;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @RequiredArgsConstructor

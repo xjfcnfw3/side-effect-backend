@@ -12,7 +12,7 @@ import sideeffect.project.domain.recruit.BoardPosition;
 import sideeffect.project.domain.user.User;
 import sideeffect.project.domain.user.UserRoleType;
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;

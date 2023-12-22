@@ -18,7 +18,7 @@ import sideeffect.project.security.LoginUser;
 import sideeffect.project.service.RecruitBoardService;
 import sideeffect.project.service.RecruitLikeService;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 import java.io.IOException;
 
 

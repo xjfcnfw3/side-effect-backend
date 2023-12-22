@@ -4,8 +4,8 @@ import lombok.*;
 import sideeffect.project.domain.recruit.RecruitBoard;
 import sideeffect.project.domain.stack.StackType;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import java.util.List;
 
 @Getter

@@ -9,7 +9,7 @@ import sideeffect.project.common.jpa.TestDataRepository;
 import sideeffect.project.domain.position.Position;
 import sideeffect.project.domain.position.PositionType;
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

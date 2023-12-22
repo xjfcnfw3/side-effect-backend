@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 import sideeffect.project.domain.notification.Notification;
 import sideeffect.project.domain.user.User;
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 import java.util.List;
 
 @RequiredArgsConstructor

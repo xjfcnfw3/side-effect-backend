@@ -20,7 +20,7 @@ import sideeffect.project.domain.user.UserRoleType;
 import sideeffect.project.dto.applicant.ApplicantListResponse;
 import sideeffect.project.dto.recruit.RecruitBoardAndLikeDto;
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

@@ -9,7 +9,7 @@ import sideeffect.project.common.jpa.TestDataRepository;
 import sideeffect.project.domain.stack.Stack;
 import sideeffect.project.domain.stack.StackType;
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

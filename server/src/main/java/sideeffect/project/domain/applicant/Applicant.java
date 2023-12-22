@@ -8,7 +8,7 @@ import sideeffect.project.common.domain.BaseTimeEntity;
 import sideeffect.project.domain.recruit.BoardPosition;
 import sideeffect.project.domain.user.User;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "APPLICANT")

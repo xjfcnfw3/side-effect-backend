@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import sideeffect.project.domain.recruit.RecruitBoard;
 import sideeffect.project.domain.user.User;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Getter
 @Entity

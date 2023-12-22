@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import sideeffect.project.domain.applicant.Applicant;
 import sideeffect.project.domain.position.Position;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 

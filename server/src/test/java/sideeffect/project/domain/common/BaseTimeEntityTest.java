@@ -13,7 +13,7 @@ import sideeffect.project.domain.user.User;
 import sideeffect.project.repository.FreeBoardRepository;
 import sideeffect.project.repository.UserRepository;
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 import java.time.LocalDateTime;
 
 class BaseTimeEntityTest extends TestDataRepository {

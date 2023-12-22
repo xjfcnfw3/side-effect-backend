@@ -3,7 +3,7 @@ package sideeffect.project.dto.applicant;
 import lombok.*;
 import sideeffect.project.domain.applicant.Applicant;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 @Getter
 @Builder

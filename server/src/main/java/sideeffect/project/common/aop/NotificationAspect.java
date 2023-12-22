@@ -32,23 +32,23 @@ public class NotificationAspect {
     private final ApplicantRepository applicantRepository;
     private final UserRepository userRepository;
 
-    @AfterReturning(value = "execution(* sideeffect.project.service.CommentService.registerComment(..)) and args(request, user)")
+    @AfterReturning(value = "execution(* sideeffect.project.service.CommentService.registerComment(..)) && args(request, user)", argNames = "joinPoint,request,user")
     public void afterRegisterFreeComment(JoinPoint joinPoint, CommentRequest request, User user){
         FreeBoard freeBoard = freeBoardRepository.findById(request.getBoardId()).orElseThrow(() -> new EntityNotFoundException(ErrorCode.FREE_BOARD_NOT_FOUND));
         String contents = "님이 댓글을 달았습니다";
         Notification notification = Notification.builder()
-                                        .user(freeBoard.getUser())
-                                        .sendingUser(user)
-                                        .title(freeBoard.getTitle())
-                                        .contents(contents)
-                                        .link("/projects/" + request.getBoardId())
-                                        .watched(false)
-                                        .notificationType(NotificationType.COMMENT)
-                                        .build();
+                .user(freeBoard.getUser())
+                .sendingUser(user)
+                .title(freeBoard.getTitle())
+                .contents(contents)
+                .link("/projects/" + request.getBoardId())
+                .watched(false)
+                .notificationType(NotificationType.COMMENT)
+                .build();
         freeBoard.getUser().addNotification(notification);
     }
 
-    @AfterReturning(value = "execution(* sideeffect.project.service.RecruitCommentService.registerComment(..)) and args(request, user)")
+    @AfterReturning(value = "execution(* sideeffect.project.service.RecruitCommentService.registerComment(..)) && args(request, user)", argNames = "joinPoint,request,user")
     public void afterRegisterRecruitComment(JoinPoint joinPoint, RecruitCommentRequest request, User user){
         RecruitBoard recruitBoard = recruitBoardRepository.findById(request.getBoardId()).orElseThrow(() -> new EntityNotFoundException(ErrorCode.RECRUIT_BOARD_NOT_FOUND));
         String contents = "님이 댓글을 달았습니다";
@@ -64,7 +64,7 @@ public class NotificationAspect {
         recruitBoard.getUser().addNotification(notification);
     }
 
-    @AfterReturning(value = "execution(* sideeffect.project.service.ApplicantService.approveApplicant(..)) and args(userId, applicantUpdateRequest)")
+    @AfterReturning(value = "execution(* sideeffect.project.service.ApplicantService.approveApplicant(..)) && args(userId, applicantUpdateRequest)", argNames = "joinPoint,userId,applicantUpdateRequest")
     public void afterApproveApplicant(JoinPoint joinPoint, Long userId, ApplicantUpdateRequest applicantUpdateRequest){
         Applicant applicant = applicantRepository.findById(applicantUpdateRequest.getApplicantId()).orElseThrow(() -> new EntityNotFoundException(ErrorCode.APPLICANT_NOT_FOUND));
         RecruitBoard recruitBoard = recruitBoardRepository.findById(applicantUpdateRequest.getRecruitBoardId()).orElseThrow(() -> new EntityNotFoundException(ErrorCode.RECRUIT_BOARD_NOT_FOUND));
@@ -82,7 +82,7 @@ public class NotificationAspect {
         applicant.getUser().addNotification(notification);
     }
 
-    @AfterReturning(value = "execution(* sideeffect.project.service.ApplicantService.rejectApplicant(..)) and args(userId, applicantUpdateRequest)")
+    @AfterReturning(value = "execution(* sideeffect.project.service.ApplicantService.rejectApplicant(..)) && args(userId, applicantUpdateRequest)", argNames = "joinPoint,userId,applicantUpdateRequest")
     public void afterRejectApplicant(JoinPoint joinPoint, Long userId, ApplicantUpdateRequest applicantUpdateRequest){
         Applicant applicant = applicantRepository.findById(applicantUpdateRequest.getApplicantId()).orElseThrow(() -> new EntityNotFoundException(ErrorCode.APPLICANT_NOT_FOUND));
         RecruitBoard recruitBoard = recruitBoardRepository.findById(applicantUpdateRequest.getRecruitBoardId()).orElseThrow(() -> new EntityNotFoundException(ErrorCode.RECRUIT_BOARD_NOT_FOUND));
@@ -99,7 +99,7 @@ public class NotificationAspect {
         applicant.getUser().addNotification(notification);
     }
 
-    @AfterReturning(value = "execution(* sideeffect.project.service.ApplicantService.register(..)) and args(user, boardPositionId)")
+    @AfterReturning(value = "execution(* sideeffect.project.service.ApplicantService.register(..)) && args(user, boardPositionId)", argNames = "joinPoint,user,boardPositionId")
     public void afterRegister(JoinPoint joinPoint, User user, Long boardPositionId){
         BoardPosition boardPosition = boardPositionRepository.findById(boardPositionId).orElseThrow(() -> new EntityNotFoundException(ErrorCode.BOARD_POSITION_NOT_FOUND));
         //RecruitBoard recruitBoard = recruitBoardRepository.findById(boardPosition.ge).orElseThrow(() -> new EntityNotFoundException(ErrorCode.RECRUIT_BOARD_NOT_FOUND));

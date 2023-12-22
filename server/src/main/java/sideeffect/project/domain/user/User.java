@@ -12,7 +12,7 @@ import sideeffect.project.domain.penalty.Penalty;
 import sideeffect.project.domain.position.PositionType;
 import sideeffect.project.domain.recruit.RecruitBoard;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;

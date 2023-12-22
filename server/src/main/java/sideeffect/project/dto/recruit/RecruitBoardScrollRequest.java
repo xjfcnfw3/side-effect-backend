@@ -5,7 +5,7 @@ import sideeffect.project.common.exception.ErrorCode;
 import sideeffect.project.common.exception.InvalidValueException;
 import sideeffect.project.domain.stack.StackType;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.List;
 
 @Getter

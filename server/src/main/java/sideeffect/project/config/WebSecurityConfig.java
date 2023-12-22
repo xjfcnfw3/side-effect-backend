@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -14,7 +15,7 @@ import sideeffect.project.security.*;
 @EnableWebSecurity
 @RequiredArgsConstructor
 @Slf4j
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableMethodSecurity
 public class WebSecurityConfig{
 
     private final JwtTokenProvider jwtTokenProvider;
@@ -38,11 +39,11 @@ public class WebSecurityConfig{
                 .csrf().disable()
                 .cors().and()
                 .authorizeRequests()
-                .antMatchers("/api/user/join", "/api/user/mypage/**", "/api/user/duple/**", "/api/social/login").permitAll()
-            .antMatchers(HttpMethod.POST, "/api/token/at-issue/**").permitAll()
-            .antMatchers(HttpMethod.POST, "/**").authenticated()
-                .antMatchers(HttpMethod.GET, "/api/free-boards/**").permitAll()
-                .antMatchers(HttpMethod.POST, "/api/like/**").hasAnyRole("USER", "ADMIN")
+                .requestMatchers("/api/user/join", "/api/user/mypage/**", "/api/user/duple/**", "/api/social/login").permitAll()
+            .requestMatchers(HttpMethod.POST, "/api/token/at-issue/**").permitAll()
+            .requestMatchers(HttpMethod.POST, "/**").authenticated()
+                .requestMatchers(HttpMethod.GET, "/api/free-boards/**").permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/like/**").hasAnyRole("USER", "ADMIN")
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)

@@ -7,9 +7,9 @@ buildscript {
 
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '2.7.10'
-	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
-	id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
+	id 'org.springframework.boot' version '3.2.1'
+	id 'io.spring.dependency-management' version '1.1.0'
+//	id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
 	id "org.asciidoctor.jvm.convert" version "3.3.2"
 	id 'com.epages.restdocs-api-spec' version "${restdocsApiSpecVersion}"
 	id 'org.hidetake.swagger.generator' version '2.18.2'
@@ -17,7 +17,7 @@ plugins {
 
 group = 'sideeffect'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+sourceCompatibility = '17'
 
 configurations {
 	compileOnly {
@@ -41,8 +41,12 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 	implementation group: 'org.json', name: 'json', version: '20180813'
 	implementation "io.jsonwebtoken:jjwt:0.9.1"
-	implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
-	implementation "com.querydsl:querydsl-apt:${queryDslVersion}"
+
+	implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
+	annotationProcessor "com.querydsl:querydsl-apt:${dependencyManagement.importedProperties['querydsl.version']}:jakarta"
+	annotationProcessor "jakarta.annotation:jakarta.annotation-api"
+	annotationProcessor "jakarta.persistence:jakarta.persistence-api"
+
 	implementation 'org.springframework.boot:spring-boot-starter-mail'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springdoc:springdoc-openapi-ui:1.7.0'
@@ -66,18 +70,18 @@ ext {
 
 def querydslDir = "$buildDir/generated/querydsl"
 
-querydsl {
-	jpa = true
-	querydslSourcesDir = querydslDir
-}
+//querydsl {
+//	jpa = true
+//	querydslSourcesDir = querydslDir
+//}
 
 sourceSets {
 	main.java.srcDir querydslDir
 }
 
-compileQuerydsl{
-	options.annotationProcessorPath = configurations.querydsl
-}
+//compileQuerydsl{
+//	options.annotationProcessorPath = configurations.querydsl
+//}
 
 test {
 	useJUnitPlatform()

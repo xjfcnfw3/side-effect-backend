@@ -2,8 +2,8 @@ package sideeffect.project.repository;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import javax.persistence.EntityExistsException;
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityExistsException;
+import jakarta.persistence.EntityManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

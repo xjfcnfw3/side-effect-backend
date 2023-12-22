@@ -10,7 +10,7 @@ import sideeffect.project.dto.comment.RecruitCommentResponse;
 import sideeffect.project.security.LoginUser;
 import sideeffect.project.service.RecruitCommentService;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 
 @RequestMapping("/api/recruit-comments")
 @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")

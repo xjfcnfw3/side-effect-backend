@@ -3,8 +3,8 @@ package sideeffect.project.common.validator;
 import org.springframework.web.multipart.MultipartFile;
 import sideeffect.project.common.annotation.ValidImageFile;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
 import java.util.Set;
 
 public class ImageFileValidator implements ConstraintValidator<ValidImageFile, MultipartFile> {

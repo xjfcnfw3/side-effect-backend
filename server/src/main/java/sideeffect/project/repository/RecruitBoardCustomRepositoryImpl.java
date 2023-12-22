@@ -14,8 +14,8 @@ import lombok.extern.slf4j.Slf4j;
 import sideeffect.project.domain.stack.StackType;
 import sideeffect.project.dto.recruit.RecruitBoardAndLikeDto;
 
-import javax.persistence.EntityManager;
-import javax.persistence.LockModeType;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.LockModeType;
 import java.util.List;
 import java.util.Optional;
 

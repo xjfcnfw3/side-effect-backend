@@ -2,7 +2,7 @@ package sideeffect.project.controller;
 
 import java.io.IOException;
 import java.util.List;
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;

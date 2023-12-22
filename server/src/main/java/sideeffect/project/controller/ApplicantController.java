@@ -9,7 +9,7 @@ import sideeffect.project.dto.applicant.*;
 import sideeffect.project.security.LoginUser;
 import sideeffect.project.service.ApplicantService;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 import java.util.Map;
 
 @RestController
